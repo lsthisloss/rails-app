@@ -1,14 +1,18 @@
 {
-  "dependencies": {
-    "build": "^0.1.4",
-    "install": "^0.13.0"
-  },
-  "name": "shopapp",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/lsthisloss/rails-app.git",
-  "author": "oleh <your-email>",
-  "license": "MIT",
-  "private": true
-
-}
+    "name": "app",
+    "private": "true",
+    "dependencies": {
+      "@hotwired/stimulus": "^3.2.1",
+      "@hotwired/turbo-rails": "^7.3.0",
+      "@popperjs/core": "^2.11.6",
+      "bootstrap": "^5.2.3",
+      "bootstrap-icons": "^1.10.3",
+      "esbuild": "^0.17.11",
+      "sass": "^1.59.2"
+    },
+    "scripts": {
+      "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets",
+      "build:css": "sass ./app/assets/stylesheets/application.bootstrap.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules"
+    }
+  }
+  
