@@ -1,0 +1,28 @@
+<div class="container">
+
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a>
+                <%= link_to "На головну" , items_path, class: "navbar-brand" %></a>
+        </nav>
+
+        <% if current_user && current_user.admin? %>
+
+            <p>You are admin</p>
+            <%end%>
+            <% if current_user%>
+                <%= link_to current_user.email, edit_user_registration_path, class:'nav-link' %>
+                <%= button_to "Sign out", destroy_user_session_path, :method => :delete, class:'btn btn-danger' %>
+
+                <%else%>
+                <ul>
+                    <%= link_to "Sign Up", new_user_registration_path, class:'btn btn-secondary' %>
+                    <%= link_to "Login", new_user_session_path, class:'btn btn-outline-primary'%>
+                </ul>
+                <%end%>
+
+            </header>
+
+
+        </div>
