@@ -1,15 +1,19 @@
 class AdminController < ApplicationController
-  def index
+
+  def index; end
+
+
+  def posts
+    @posts = Post.all.includes(:user)
   end
 
-  def items
-    @items = Items.all.Includes(:user)
-  end
 
-  def users
-  end
+  def comments; end
 
-  def show_orders
-    @items = Items.Includes(:user).find(params[:id])
+  def users; end
+
+
+  def show_post
+    @post = Post.includes(:user, comments: [:user, :rich_text_body]).find(params[:id])
   end
 end
