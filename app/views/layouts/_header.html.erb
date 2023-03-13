@@ -6,12 +6,13 @@
             <a>
                 <%= link_to "На головну" , items_path, class: "navbar-brand" %></a>
         </nav>
-
         <% if current_user && current_user.admin? %>
 
-            <p>You are admin</p>
+            <%= link_to "New item", new_item_path %>
             <%end%>
+
             <% if current_user%>
+                <p><%= current_user.role %></p>
                 <%= link_to current_user.email, edit_user_registration_path, class:'nav-link' %>
                 <%= button_to "Sign out", destroy_user_session_path, :method => :delete, class:'btn btn-danger' %>
 
