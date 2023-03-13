@@ -3,5 +3,5 @@
 #
 # Examples:
 #
-users = User.create(email: 'email@admin.com', password: 'sEcReT', rolem: 1)
+users = User.create(email: 'email@admin.com', password: 'sEcReT', role: 1)
     users.save
