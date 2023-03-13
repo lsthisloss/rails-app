@@ -8,5 +8,7 @@
   "main": "index.js",
   "repository": "https://github.com/lsthisloss/rails-app.git",
   "author": "oleh <your-email>",
-  "license": "MIT"
+  "license": "MIT",
+  "private": true
+
 }
