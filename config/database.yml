@@ -80,7 +80,7 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: shopapp_production
-  username: shopapp
-  password: <%= ENV["SHOPAPP_DATABASE_PASSWORD"] %>
+      adapter: postgresql
+      database: my_database_production
+      pool: 5
+      timeout: 5000

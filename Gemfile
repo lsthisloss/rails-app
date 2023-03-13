@@ -75,3 +75,6 @@ group :test do
 end
 
 gem "devise", "~> 4.9"
+gem 'pg', :group => :production
+gem 'mysql2' , :group => :development
+gem 'sqlite3', :group => :test
