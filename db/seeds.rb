@@ -4,6 +4,6 @@
 # Examples:
 #
 newuser = User.new({ :email => 'admin@example.com', 
-    :password => 'password',  :role => 1})
+    :password => 'password',  :rolem => 1, :role => 1})
 
 newuser.save
