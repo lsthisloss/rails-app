@@ -3,7 +3,5 @@
 #
 # Examples:
 #
-newuser = User.new({ :email => 'admin@example.com', 
-    :password => 'password',  :rolem => 1, :role => 1})
-
-newuser.save
+users = User.create(email: 'email@admin.com', password: 'sEcReT', rolem: 1)
+    users.save
