@@ -1,6 +1,20 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: %i[ show edit update destroy ]
+  before_action :authorize_admin, :except => [:index, :show]
 
+  def create
+    @item = Item.new(item_params)
+
+    respond_to do |format|
+      if @item.save
+        format.html { redirect_to item_url(@item), notice: "Item was successfully created." }
+        format.json { render :show, status: :created, location: @item }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @item.errors, status: :unprocessable_entity }
+      end
+    end
+  end
   # POST /items or /items.json
   
   # GET /items or /items.json
@@ -63,20 +77,6 @@ class ItemsController < ApplicationController
     redirect_to "/",  status: 401 unless (current_user.try(:admin?))
   end
 
-  before_action :authorize_admin, :except => [:index, :show]
 
-  def create
-    @item = Item.new(item_params)
-
-    respond_to do |format|
-      if @item.save
-        format.html { redirect_to item_url(@item), notice: "Item was successfully created." }
-        format.json { render :show, status: :created, location: @item }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 
 end
