@@ -2,20 +2,20 @@
     <ul class="nav justify-content-center py-3 border-bottom">
 
         <li class="nav-item">
-            <%= link_to "Головна", "/" , class: "nav-link" %>
+            <%= link_to "Home", "/" , class: "nav-link" %>
         </li>
         <% if current_user && current_user.admin?%>
             <li class="nav-item">
-                <%= link_to "Додати айтем", new_item_path , class: "nav-link" %>
+                <%= link_to "New item", new_item_path , class: "nav-link" %>
             </li>
             <li class="nav-item">
-                <%= link_to "Юзери", users_path , class: "nav-link" %>
+                <%= link_to "Users", users_path , class: "nav-link" %>
             </li>
             <%end%>
 
             <% if current_user  %>
                 <li class="nav-item">
-                    <%= link_to "Редагувати" , edit_user_registration_path , class: "nav-link" %>
+                    <%= link_to "Edit profile" , edit_user_registration_path , class: "nav-link" %>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled"><%=  current_user.email + " [" + current_user.role + "]" %></a>
