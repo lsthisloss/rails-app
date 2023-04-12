@@ -21,8 +21,8 @@
                 <% if current_user %>
                     <%= form_with(url: cart_add_path) do |form| %>
                         <%= form.hidden_field :id, value: item.id %>
-                        <%= form.number_field  :quantity, value: 1, min:1, class:"form-control mb-2 w-auto"%>
-                        <%= form.submit "Add to cart",class:"btn  btn-outline-secondary w-auto" %>
+                        <%= form.number_field  :quantity, value: 1, min:1, class:"form-control mb-2 w-100"%>
+                        <%= form.submit "Add to cart",class:"btn  btn-outline-secondary w-100" %>
                         <%end%>
                         <%else%>
                         <%end%>
