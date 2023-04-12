@@ -1,0 +1,29 @@
+<% @cart.myorderables.each do  |myorderable|%>
+<%item = myorderable.item %>
+<div
+    id="<% "cart-#{item.id}"%>">
+    <!-- Shopping cart table -->
+
+
+    <tr>
+        <td class="p-4">
+            <div class="media align-items-center">
+                <div class="media-body">
+                    <%= link_to item.name, item,  class: "d-block text-dark" %></a>
+
+            </div>
+        </div>
+    </td>
+    <td class="text-right font-weight-semibold align-middle p-4"><%= item.price %>$</td>
+    <td class="text-center font-weight-semibold align-middle p-4"><%= myorderable.quantity %></td>
+
+    <td class="text-center align-middle px-0">
+        <%= form_with(url: cart_remove_path) do |form| %>
+            <%= form.hidden_field :id, value: myorderable.id %>
+            <%= form.submit "Remove", class:"btn btn-danger"%>
+            <%end%>
+        </td>
+    </tr>
+
+
+</tr></div><%end%>

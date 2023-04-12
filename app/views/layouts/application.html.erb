@@ -13,6 +13,7 @@
     <body>
         <main>
             <%=render 'layouts/header'%>
+            <%=render partial: "cart/cart" if @render_cart %>
             <%= yield %>
         </main>
     </body>

@@ -1,31 +1,40 @@
-<h2 class="text-center">
-    <%= @item.name %>
-</h2>
-<div class="container text-right ">
+<div class="container">
+    <h2 class="display-5 text-center mt-2">
+        <%= @item.name %>
+    </h2>
+    <%= link_to "< Back" , items_path, class: "btn btn-secondary mb-4 text-right" %>
 
-    <%= link_to "< Back" , items_path, class: "btn btn-secondary mb-4" %>
-</div>
-<div class="container bg-light text-right pt-4 pb-4">
-    <div id="<%= dom_id @item %>">
-        <p>
-            <strong>Опис:</strong>
+    <div class="container bg-light text-right pt-2 pb-3 ">
+        <div id="<%= dom_id @item %>">
+            <strong>Description:</strong>
+
             <%= @item.description %>
-        </p>
-        <p>
+        </div>
+        <p class="mt-2">
             <strong>Price:</strong>
-            <%= @item.price %>
+            <%= @item.price %>$
         </p>
         <% if current_user %>
-            <%= link_to "Buy" , items_path, class: "btn btn-success btn-lg active" %>
-            <%end%>
-            <% if current_user && current_user.admin? %>
-                |
-                <%= link_to "Edit" , edit_item_path(@item), class: "btn btn-primary" %>
-                |
-                <%= button_to "Delete" , @item, method: :delete, class: "btn btn-danger" , form:
-                 {style: 'display:inline-block;' ,}%>
-                <%else%>
-                <p>You need to auth, to continue</p>
+            <div class="input-group w-25 mb-3">
+                <%= form_with(url: cart_add_path) do |form| %>
+                    <%= form.hidden_field :id, value: @item.id %>
+                    <%= form.number_field  :quantity, value: 1, min:1, class:"form-control mb-2 w-auto"%>
+                    <%= form.submit "Add to cart",class:"btn  btn-outline-secondary w-auto" %>
+                    <%end%>
+                </div>
+
+                <div class="input-group .w-25"></div>
+
                 <%end%>
+                <% if current_user && current_user.admin? %>
+                    <div class="card-text border-top pt-2 "></div>
+                    <%= link_to "Edit" , edit_item_path(@item), class: "btn btn-primary" %>
+                    |
+                    <%= button_to "Delete" , @item, method: :delete, class: "btn btn-danger" , form:
+                 {style: 'display:inline-block;' ,}%>
+                    <%else%>
+                    <p>You need to auth, to continue</p>
+                    <%end%>
+                </div>
             </div>
         </div>

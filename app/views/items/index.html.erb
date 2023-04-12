@@ -1,4 +1,4 @@
-<h1 class="display-5 text-center" style="padding-bottom: 20px">Breach</h1>
+<h1 class="display-5 text-center">Breach</h1>
 <div id="items" class="container">
     <div class="row row-cols-1 row-cols-md-3">
         <% @items.each do |item| %>
@@ -7,9 +7,4 @@
     </div>
 
 
-    <% if current_user && current_user.admin?%>
-
-        <%= link_to "New item", new_item_path %>
-        <%end%>
-
-    </div>
+</div>
