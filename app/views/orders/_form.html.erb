@@ -1,0 +1,28 @@
+<%= form_with(model: order) do |form| %>
+    <% if order.errors.any? %>
+        <div style="color: red">
+            <h2><%= pluralize(order.errors.count, "error") %>
+                prohibited this order from being saved:</h2>
+
+            <ul>
+                <% order.errors.each do |error| %>
+                    <li><%= error.full_message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <div>
+        <%= form.label :user_id %>
+        <%= form.text_field :user_id, value:current_user.id, style: "display: block" %>
+    </div>
+
+    <div>
+        <%= form.label :amount,  style: "display: block" %>
+        <%= form.text_field :amount,min:1 %>
+    </div>
+
+    <div>
+        <%= form.submit class: 'btn btn-success mt-2'%>
+    </div>
+<% end %>

@@ -1,0 +1,34 @@
+<p style="color: green"><%= notice %></p>
+
+
+<div class="container">
+    <h1 class="text-center">Orders
+                        (<%= current_user.role %>)</h1>
+    <table class="table table-light table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Order Id</th>
+                <th scope="col">Amount</th>
+                <th scope="col">User Id</th>
+                <th scope="col">Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <% @orders.each do |order|  %>
+                <tr>
+
+                    <th scope="row"><%= order.id %></th>
+                    <td>
+                        <%=  order.amount %>
+                    </td>
+                    <td><%= order.user_id %></td>
+                    <td><%= link_to 'Show', order %></td>
+
+                </tr>
+
+            <% end %>
+        </tbody>
+    </table>
+
+</div>
