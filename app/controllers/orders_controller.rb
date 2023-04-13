@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
       @orders = Order.all
     else
       @orders = Order.all.where(:user_id => current_user.id)
-      @logs = OrdersDescription.all.where(:order_id => @orders)
+     # @logs = OrdersDescription.all.where(:order_id => @orders)
     end
   end
 
