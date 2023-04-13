@@ -33,9 +33,7 @@
                     <%= button_to "Delete" , @item, method: :delete, class: "btn btn-danger" , form:
                     {style: 'display:inline-block;' ,}%>
                     <%end%>
-                    <%elsif !current_user%>
-                    <p>You need to auth, to continue</p>
-                    <%end%>
+
                 </div>
             </div>
         </div>
