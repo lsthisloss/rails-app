@@ -13,10 +13,10 @@ Rails.application.routes.draw do
   match 'users/edit/:id', to: 'registrations#edit',  via: 'get'
   end
 
-  devise_for :users
   match '/users',   to: 'users#index',   via: 'get'
   root "items#index"
   resources :items
+  devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
